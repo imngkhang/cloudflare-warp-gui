@@ -11,6 +11,19 @@ from qtwidgets import AnimatedToggle
 from warp_gui.commend import Commend
 from warp_gui.ui.mainwindow_ui import Ui_MainWindow
 
+def get_resource(rel_path):
+    import os
+    import sys
+    # Lấy thư mục chứa file hiện tại (mainwindow.py)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Đi ngược ra ngoài 1 cấp để vào thư mục gốc của dự án
+    base_path = os.path.abspath(os.path.join(current_dir, ".."))
+    
+    # Nếu chạy bằng Nuitka/Onefile, nó sẽ dùng đường dẫn tạm
+    if hasattr(sys, '_MEIPASS'):
+        base_path = sys._MEIPASS
+        
+    return os.path.join(base_path, rel_path)
 
 class GUI:
     def __init__(self):
@@ -19,7 +32,7 @@ class GUI:
         if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
             QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
         self.app = QtWidgets.QApplication(sys.argv)
-        self.app.setApplicationName('Cloudflare Warp')
+        self.app.setApplicationName('Cloudflare WARP')
         self.mainWindow = QtWidgets.QMainWindow()
         self.mainWindow.closeEvent = self.handleCloseEvent
         self.ui = Ui_MainWindow()
@@ -37,7 +50,7 @@ class GUI:
         threading.Thread(target=self.status_thread).start()
 
     def init_tray_icon(self):
-        self.tray_icon = QSystemTrayIcon(QIcon(os.path.dirname(__file__) + '/../icons/offline.png'), self.mainWindow)
+        self.tray_icon = QSystemTrayIcon(QIcon(get_resource('icons/offline.png')), self.mainWindow)
         self.menu_tray = QMenu()
         self.__menu_tray_connect = QAction("Connect / Disconnect")
         self.menu_tray.addAction(self.__menu_tray_connect)
@@ -50,9 +63,9 @@ class GUI:
 
     def set_tray_icon(self, connected):
         if connected:
-            self.tray_icon.setIcon(QIcon(os.path.dirname(__file__) + '/../icons/online.png'))
+            self.tray_icon.setIcon(QIcon(get_resource('icons/online.png')))
         else:
-            self.tray_icon.setIcon(QIcon(os.path.dirname(__file__) + '/../icons/offline.png'))
+            self.tray_icon.setIcon(QIcon(get_resource('icons/offline.png')))
 
     def init_account(self):
         account_type = self.commend.account_type()
@@ -78,7 +91,7 @@ class GUI:
         return toggle
 
     def set_icon(self):
-        self.mainWindow.setWindowIcon(QtGui.QIcon(os.path.dirname(__file__) + "/../icons/logo.png"))
+        self.mainWindow.setWindowIcon(QtGui.QIcon(get_resource("icons/logo.png")))
 
     def init_signals(self):
         self.toggle.clicked.connect(self.connect_button_clicked)

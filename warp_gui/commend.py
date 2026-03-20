@@ -1,3 +1,4 @@
+import subprocess
 import os
 
 
@@ -5,8 +6,12 @@ class Commend:
 
     @staticmethod
     def run(commend):
-        stream = os.popen(commend)
-        return stream.read()
+        full_command = commend.replace('warp-cli', '/usr/bin/warp-cli')
+        try:
+            return subprocess.check_output(full_command, shell=True, text=True)
+        except Exception as e:
+            print(f"Lỗi thực thi: {e}")
+            return ""
 
     def disconnect(self):
         result = self.run('warp-cli disconnect')

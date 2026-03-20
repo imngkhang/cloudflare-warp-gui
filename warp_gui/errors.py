@@ -8,6 +8,6 @@ def already_running():
     AlreadyRunning = QtWidgets.QDialog()
     ui = Ui_AlreadyRunning()
     ui.setupUi(AlreadyRunning)
-    app.setWindowIcon(QtGui.QIcon(os.path.dirname(__file__) + "/../icons/sign-error-icon.png"))
+    app.setWindowIcon(QtGui.QIcon(os.path.dirname(__file__) + "icons/sign-error-icon.png"))
     AlreadyRunning.show()
     sys.exit(app.exec_())
