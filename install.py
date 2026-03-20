@@ -7,13 +7,13 @@ cur_path = sys.path[0]
 os.system("pip3 install -U pip wheel setuptools")
 os.system("pip3 install -r requirements.txt")
 os.system("mkdir -p ~/.local/share/icons")
-os.system("cp {}/icons/logo.png ~/.local/share/icons/warp_gui.png".format(cur_path))
+os.system("cp {}/icons/logo.png /usr/share/icons/warp_gui.png".format(cur_path))
 
-desktop_file = '{}/.local/share/applications/warp-gui.desktop'.format(Path.home())
+desktop_file = '/usr/share/applications/warp-gui.desktop'.format(Path.home())
 
 file = open(desktop_file, 'w+')
 file.write('''[Desktop Entry]
-Name=Warp Cloudflare 
+Name=Cloudflare WARP 
 Version=1.0
 Comment=A gui app base on warp-cli for linux
 Exec=bash {}/main.sh
