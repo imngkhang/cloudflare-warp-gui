@@ -9,7 +9,7 @@ os.system("pip3 install -r requirements.txt")
 os.system("mkdir -p ~/.local/share/icons")
 os.system("cp {}/icons/logo.png /usr/share/icons/warp_gui.png".format(cur_path))
 os.system("python3 -m nuitka --standalone --onefile --output-dir=dist --enable-plugin=pyqt5 --include-data-dir=icons=icons --include-data-dir=warp_gui/ui=warp_gui/ui --include-data-dir=designer=designer --include-data-dir=requirements=requirements --include-data-files=requirements.txt=requirements.txt --include-data-files=LICENSE=LICENSE -o warp-qt main.py")
-
+os.system("sudo cp {}/dist/warp-qt /usr/bin/ && sudo chmod +x /usr/bin/warp-qt")
 desktop_file = '/usr/share/applications/warp-gui.desktop'.format(Path.home())
 
 file = open(desktop_file, 'w+')
