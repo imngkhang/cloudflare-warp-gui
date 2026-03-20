@@ -14,12 +14,9 @@ from warp_gui.ui.mainwindow_ui import Ui_MainWindow
 def get_resource(rel_path):
     import os
     import sys
-    # Lấy thư mục chứa file hiện tại (mainwindow.py)
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    # Đi ngược ra ngoài 1 cấp để vào thư mục gốc của dự án
     base_path = os.path.abspath(os.path.join(current_dir, ".."))
     
-    # Nếu chạy bằng Nuitka/Onefile, nó sẽ dùng đường dẫn tạm
     if hasattr(sys, '_MEIPASS'):
         base_path = sys._MEIPASS
         
