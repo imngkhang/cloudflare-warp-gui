@@ -1,4 +1,4 @@
-# Warp Cloudflare GUI
+# Cloudflare WARP GUI
 
 A GUI application based on [warp-cli](https://developers.cloudflare.com/warp-client/get-started/linux) for Linux.
 
@@ -14,30 +14,35 @@ A GUI application based on [warp-cli](https://developers.cloudflare.com/warp-cli
 
 Read the [warp-cli install](https://developers.cloudflare.com/warp-client/get-started/linux) documentation. Install `warp-cli` and register with the `$ warp-cli registration new` command. Ensure you test your connection and accept any TOS notices by trying `$ warp-cli connect` and then `$ warp-cli disconnect`.
 
-Then execute the following commands:
+Then execute the following command:
 
-    $ sudo apt install git python3 python3-venv python3-pip
-    $ git clone https://github.com/mrmoein/warp-cloudflare-gui
-    $ cd warp-cloudflare-gui
+    $ sudo apt install git python3 python3-venv python3-pip 
+    $ git clone https://github.com/imngkhang/cloudflare-warp-gui
+    $ cd cloudflare-warp-gui
     $ bash install.sh
-    $ sudo chmod +x ~/.local/share/applications/warp-gui.desktop
+    $ sudo chmod +x /usr/share/applications/warp-gui.desktop
 
-Now search for `warp cloudflare` in your desktop menu.
+> Disclaimer: This script use "sudo" to copy the desktop file and the binary to /usr/bin. If you don't want to use "sudo", you can execute the following commands to install it manually.
 
-> ⚠️ IMPORTANT: After the installation please make sure you do not remove the repository directory. It is required for the desktop shortcut to work.
+
+
+ 
+
+Now search for `Cloudflare WARP` in your desktop menu.
+
 
 ## Hidden Mode
 If you only want to use the tray icon, you can run the program in hidden mode.
     
-    $ bash main.sh --hide
+    $ warp-qt --hide
 
 ## Uninstall
 
-Just remove the `~/.local/share/applications/warp-gui.desktop` file.
+Remove the file "/usr/bin/warp-qt" and "/usr/share/applications/warp-gui.desktop" 
 
 ## Screenshot
 
-![warp cloudflare gui](icons/Screenshot.png)
+![Cloudflare WARP GUI](icons/Screenshot.png)
 
 ## Resolved Issues
 - [There are 2 tray icons of WARP CLI and this GUI app](https://github.com/mrmoein/warp-cloudflare-gui/issues/11)
