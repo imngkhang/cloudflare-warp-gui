@@ -24,7 +24,7 @@ Then execute the following command:
 
 > Disclaimer: This script use "sudo" to copy the desktop file and the binary to /usr/bin. If you don't want to use "sudo", you can execute the following commands to build and install it manually, and if you don't like to compile, you can use the command in the [original repo}(https://github.com/mrmoein/warp-cloudflare-gui), as the Installation section.
 
->   $ sudo apt install git python3 python3-venv python3-pip build-essential patchelf
+    $ sudo apt install git python3 python3-venv python3-pip build-essential patchelf
     $ git clone https://github.com/imngkhang/cloudflare-warp-gui
     $ cd cloudflare-warp-gui
     $ python3 -m venv venv
