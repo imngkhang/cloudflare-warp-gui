@@ -16,7 +16,7 @@ file.write('''[Desktop Entry]
 Name=Cloudflare WARP 
 Version=1.0
 Comment=A gui app base on warp-cli for linux
-Exec=bash {}/main.sh
+Exec=warp-qt
 Icon=warp_gui
 Terminal=false
 Path={}
