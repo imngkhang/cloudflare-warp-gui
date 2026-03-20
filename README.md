@@ -22,11 +22,30 @@ Then execute the following command:
     $ bash install.sh
     $ sudo chmod +x /usr/share/applications/warp-gui.desktop
 
-> Disclaimer: This script use "sudo" to copy the desktop file and the binary to /usr/bin. If you don't want to use "sudo", you can execute the following commands to install it manually.
+> Disclaimer: This script use "sudo" to copy the desktop file and the binary to /usr/bin. If you don't want to use "sudo", you can execute the following commands to build and install it manually, and if you don't like to compile, you can use the command in the [original repo}(https://github.com/mrmoein/warp-cloudflare-gui), as the Installation section.
 
-
-
- 
+>   $ sudo apt install git python3 python3-venv python3-pip build-essential patchelf
+    $ git clone https://github.com/imngkhang/cloudflare-warp-gui
+    $ cd cloudflare-warp-gui
+    $ python3 -m venv venv
+    $ source venv/bin/activate
+    $ pip3 install -U pip wheel setuptools nuitka zstandard
+    $ pip3 install -r requirements.txt
+    $ sudo cp icons/logo.png /usr/share/icons/warp_gui.png
+    $ python3 -m nuitka --standalone --onefile --output-dir=dist --enable-plugin=pyqt5 --include-data-dir=icons=icons --include-data-dir=warp_gui/ui=warp_gui/ui --include-data-dir=designer=designer --include-data-dir=requirements=requirements --include-data-files=requirements.txt=requirements.txt --include-data-files=LICENSE=LICENSE -o warp-qt main.py
+    $ sudo cp /dist/warp-qt /usr/bin/ && sudo chmod +x /usr/bin/warp-qt
+    $ sudo cat <<EOF > /usr/share/warp-gui.desktop 
+     [Desktop Entry]
+     Name=Cloudflare WARP 
+     Version=1.0
+     Comment=A gui app base on warp-cli for linux
+     Exec=warp-qt
+     Icon=warp_gui
+     Terminal=false
+     Type=Application
+     EOF
+    $ deactivate 
+    $ sudo chmod +x /usr/share/applications/warp-gui.desktop
 
 Now search for `Cloudflare WARP` in your desktop menu.
 
