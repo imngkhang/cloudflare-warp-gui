@@ -57,7 +57,9 @@ If you only want to use the tray icon, you can run the program in hidden mode.
 
 ## Uninstall
 
-Remove the file "/usr/bin/warp-qt" and "/usr/share/applications/warp-gui.desktop" 
+Remove the file "/usr/bin/warp-qt" and "/usr/share/applications/warp-gui.desktop" by this command:
+
+    $ sudo rm -f /usr/bin/warp-qt && sudo rm -f /usr/share/applications/warp-gui.desktop
 
 ## Screenshot
 
