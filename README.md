@@ -47,7 +47,7 @@ Then execute the following command:
     $ deactivate 
     $ sudo chmod +x /usr/share/applications/warp-gui.desktop
 
-Now search for `Cloudflare WARP` in your desktop menu.
+Now search for `Cloudflare WARP` in your app menu.
 
 
 ## Hidden Mode
