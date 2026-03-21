@@ -47,7 +47,7 @@ Then execute the following command:
     $ deactivate 
     $ sudo chmod +x /usr/share/applications/warp-gui.desktop
 
-Now search for `Cloudflare WARP` in your app menu.
+Now search for `Cloudflare WARP` in your app menu, or if you like, you can delete the repo easily.
 
 
 ## Hidden Mode
