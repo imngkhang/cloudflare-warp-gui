@@ -31,7 +31,7 @@ Then execute the following command:
     $ source venv/bin/activate
     $ pip3 install -U pip wheel setuptools nuitka zstandard
     $ pip3 install -r requirements.txt
-    $ sudo cp icons/logo.png /usr/share/icons/warp_gui.png
+    $ sudo cp icons/logo.png /usr/share/icons/hicolor/32x32/warp_gui.png
     $ python3 -m nuitka --standalone --onefile --output-dir=dist --enable-plugin=pyqt5 --include-data-dir=icons=icons --include-data-dir=warp_gui/ui=warp_gui/ui --include-data-dir=designer=designer --include-data-dir=requirements=requirements --include-data-files=requirements.txt=requirements.txt --include-data-files=LICENSE=LICENSE -o warp-qt main.py
     $ sudo cp /dist/warp-qt /usr/bin/ && sudo chmod +x /usr/bin/warp-qt
     $ sudo cat <<EOF > /usr/share/warp-gui.desktop 
