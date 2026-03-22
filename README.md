@@ -62,7 +62,7 @@ If you want to this application to autostart on login, you can use this command 
       Terminal=false
       Type=Application
       EOF
-
+    $ chmod +x ~/.config/autostart/warp-gui.desktop
 ## Hidden Mode
 If you only want to use the tray icon, you can run the program in hidden mode.
     
