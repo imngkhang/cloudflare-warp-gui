@@ -38,7 +38,7 @@ Then execute the following command:
      [Desktop Entry]
      Name=Cloudflare WARP 
      Version=1.0
-     Comment=A gui app base on warp-cli for linux
+     Comment=A GUI app base on warp-cli for Linux
      Exec=warp-qt
      Icon=warp_gui
      Terminal=false
@@ -56,7 +56,7 @@ If you want to this application to autostart on login, you can use this command 
       [Desktop Entry]
       Name=Cloudflare WARP 
       Version=1.0
-      Comment=A gui app base on warp-cli for linux
+      Comment=A GUI app base on warp-cli for Linux
       Exec=sh -c "sleep 2 && warp-qt --hide"
       Icon=zero-trust-orange
       Terminal=false
