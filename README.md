@@ -49,6 +49,19 @@ Then execute the following command:
 
 Now search for `Cloudflare WARP` in your app menu, or if you like, you can delete the repo easily.
 
+## Autostart
+If you want to this application to autostart on login, you can use this command below:
+
+    $ cat <<EOF > ~/.config/autostart/warp-gui.desktop
+      [Desktop Entry]
+      Name=Cloudflare WARP 
+      Version=1.0
+      Comment=A gui app base on warp-cli for linux
+      Exec=sh -c "sleep 2 && warp-qt --hide"
+      Icon=zero-trust-orange
+      Terminal=false
+      Type=Application
+      EOF
 
 ## Hidden Mode
 If you only want to use the tray icon, you can run the program in hidden mode.
